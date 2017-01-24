@@ -38,7 +38,7 @@ long_query_time = {{ mysql_slow_query_time }}
 # Replication
 server-id = {{ mysql_server_id }}
 
-{% if mysql_replication_role == 'master' %}
+{% if mysql_replication_role == 'master' or mysql_replication_role_bis == 'master' %}
 log_bin = mysql-bin
 log-bin-index = mysql-bin.index
 expire_logs_days = {{ mysql_expire_logs_days }}
@@ -54,7 +54,7 @@ binlog_ignore_db = {{ db.name }}
 {% endfor %}
 {% endif %}
 
-{% if mysql_replication_role == 'slave' %}
+{% if mysql_replication_role == 'slave' and mysql_replication_role_bis != "master" %}
 read_only
 relay-log = relay-bin
 relay-log-index = relay-bin.index
