@@ -37,6 +37,7 @@ long_query_time = {{ mysql_slow_query_time }}
 {% if mysql_replication_master %}
 # Replication
 server-id = {{ mysql_server_id }}
+auto_increment_increment = {{ mysql_replication_auto_increment }}
 
 {% if mysql_replication_role == 'master' or mysql_replication_role_bis == 'master' %}
 log_bin = mysql-bin

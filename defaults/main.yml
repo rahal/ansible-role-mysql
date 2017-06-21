@@ -120,6 +120,8 @@ mysql_replication_master: ''
 # For a two way replication , just setup mysql_replication_role_bis and  mysql_replication_master_bis
 mysql_replication_role_bis: ''
 mysql_replication_master_bis: ''
+# must be modified to 2 if we use master-master replication
+mysql_replication_auto_increment: 1
 
 # Same keys as `mysql_users` above.
 mysql_replication_user: []
